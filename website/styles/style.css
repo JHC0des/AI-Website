@@ -1,0 +1,459 @@
+@font-face { /* Custom font which I thought matched the feel of the web page  */
+    font-family: 'green-pillow';
+    src: url('../fonts/GREENPIL.otf');
+}
+
+:root {
+    --color-white: #fff;
+    --secondary-color: rgba(255, 255, 255, 0.4);
+    --third-color: rgba(255, 255, 255, 0.2);
+}
+
+#main-content, .main-buttons img, #products-container, form { /* This was repeated 4 times which took 16 lines. Using common selectors took it down to 4 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#main-content::-webkit-scrollbar-track, #main-content::-webkit-scrollbar, section::-webkit-scrollbar-track, section::-webkit-scrollbar, #menu-container, html::-webkit-scrollbar, form {
+    display: none;
+}
+#first-section p, #maintop-button:hover, .button-collection:hover, h1, #second-section p, h2, footer {
+    color: var(--color-white);
+}
+#first-section p, #left-nav, .main-buttons, #top-nav, #topbutton-collection, h1, video, #main-image, #learn-button, .robothalf-image, #second-paragraph, #second-section h2, #paragraph-container, footer, #formx, #reminder {
+    position: absolute;
+}
+body, #maintop-button, .button-collection, .products, .form-class, input[type="submit"], .main-buttons { /* Hide cursor from all the places where it appears as i have a custom cursor  */
+    cursor: none;
+}
+/* Hide the background of the scrollbar */
+#second-section p::-webkit-scrollbar, #products-container::-webkit-scrollbar, .products p::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+/* Change the width and color of the scrollbar */
+#second-section p::-webkit-scrollbar-thumb, #products-container::-webkit-scrollbar-thumb, .products p::-webkit-scrollbar-thumb {
+    background-color: black;
+    border: none;
+    border-radius: 50px;
+}
+
+body {
+    background: linear-gradient(to right, rgb(16, 21, 25), #1a2745); /* Linear gradient to match the background image incase of overlaps */
+    background-size: cover;
+}
+
+#shownav { /* Button to show the navigation bar on lower screen widths. Hidden by default */
+    position: absolute;
+    width: 25px;
+    top: 20px;
+    left: 20px;
+    z-index: 2; /* Make sure content is on top so it is visible */
+    display: none;
+}
+
+#main-content {
+    font-family: 'system-ui'; /* Set font as a familiar one */
+    height: 80%; /*  */
+    width: 90%;
+    max-width: 1200px; /* Prevent content from exceeding the max height and width */
+    max-height: 900px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--third-color);
+    box-shadow: 0 0 50px rgba(10, 15, 20, 1);
+    scroll-snap-points-y: repeat(100vh); /* From here down I implented a snapping scroll point feature which I found was fitting for the content of this website. When the user scrolls down it snaps into place. */
+    scroll-snap-type: y mandatory;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+section { /* Customise each section of the main content */
+    scroll-snap-align: start; /* Snap to the top of each section */
+    position: relative;
+    overflow-y: scroll; /* If content overflows the section then enable scrolling */
+    height: 100%; /* Make sure the sections fill the height of the main content */
+}
+
+#first-section p { /* Customise the paragraph of the first section */
+    font-weight: lighter; /* Change the font weight to lighter because the default is too bold and not readable */
+    font-size: 20px;
+    width: 50%; /* Set the width for design purposes */
+    margin-top: 220px; /* Set the margins so it is positioned correctly */
+    margin-left: 125px;
+    background-color: rgba(206, 206, 206, 0.2); /* Used rgba so I can set the alpha of the colour so it is slightly transparent so the background still shows through */
+    padding: 20px; /* Add some padding so there is space around the text */
+    border-radius: 5px;
+}
+#first-section img {
+    transition: 200ms; /* Added transition so when the robot images are hovered then it will slowly change */
+}
+
+.main-button-images {
+    opacity: 0.2; /* Set the opacity of the buttons so it can be changed to 1 once hovered */
+}
+
+#left-nav {
+    width: 60px;
+    top: 0;
+    height: 100%;
+    border-right: 1px solid var(--third-color); /* Only set the right border property as an all round border isn't neccessary because of the border of the main content */
+}
+.main-buttons {
+    width: 60px;
+    height: 55px;
+    background-color: #76767635;
+}
+.main-buttons:hover .main-button-images { /* When main-buttons is hovered then customise .main-button-images*/
+    opacity: 1;
+}
+
+.main-buttons:hover {
+    background-color: #76767652;
+}
+
+#logo { /* Customise the websites logo */
+    width: 25px;
+    /* margin-left: 35px; */
+    margin-top: 17px;
+}
+.main-buttons {
+    border: none; /* Remove the border off the default button look */
+}
+
+.main-buttons img {
+    width: 50%; /* Set the width of the images as 50% of the container, which will be the button width */
+}
+
+#menu-container {
+    height: 250px;
+    width: 60px;
+}
+#menu-container button:nth-child(1) { /* This saves me from having to create a seperate ID for each button and also makes it clearer. This checks which button inside of the container */
+    margin-top: 70px; /* Set the margin top value so the buttons have specific distances */
+}
+#menu-container button:nth-child(2) {
+    margin-top: 127px;
+}
+#menu-container button:nth-child(3) {
+    margin-top: 184px;
+}
+#menu-container button:nth-child(4) {
+    margin-top: 241px;
+}
+
+#top-nav {
+    width: 90%;
+    height: 60px;
+    top: 0; /* Set the top and right values so the navigation bar is positioned all the way at the edges. Position is already set as absolute with common selectors at the top */
+    right: 0;
+}
+
+#maintop-button {
+    background: linear-gradient(to right, rgb(91, 39, 97), rgb(0, 89, 255)); /* Create a purple to blue gradient for the top right button */
+    float: right; /* Float the button to the right */
+    padding: 8px 18px; /* Make the buttons padding 8px height and 18px width */
+    margin-top: 15px;
+    margin-right: 15px;
+    color: var(--secondary-color); /* Set colour to white but alpha as 0.4 so when hovered it can go to 1 */
+    border-radius: 2px;
+    text-decoration: none; /* Remove the underline */
+    transition: 200ms; /* Add a transition so its not snappy */
+}
+
+#topbutton-collection {
+    right: 150px; /* Set the top navigation buttons to the right but not all the way */
+    top: 20px; /* Move them down slightly */
+    width: 265px;
+}
+
+.button-collection {
+    margin: 15px 15px; /* This could be margin left and right set to 15px but its shorter to do this */
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+h1 {
+    width: 500px;
+    font-size: 50px; /* Set the h1 font size higher so it matches the design better */
+    left: 130px;
+    top: 50px;
+    font-family: 'green-pillow'; /* Use the font that I imported at the top */
+    font-weight: lighter; /* Make the font weight lighter as the original is too thick */
+}
+
+#main-image { /* The main image that sits in the background */
+    width: 99%; /* Set the width and height as 99% to stop overflows and scrollbars appearing */
+    height: 99%;
+    object-fit: cover; /* Maintain aspect ratio */
+    filter: blur(50px); /* Blur it 50px so content is readable */
+    animation: fadein 2s; /* Set an animation for the image */
+}
+
+.robothalf-image { /* Customise the robot images */
+    width: 200px;
+    bottom: 0; /* Set the bottom property so it sits at the bottom of the first section */
+    right: 0;
+    opacity: 0.4;
+    filter: grayscale(100%); /* Set the opacity as 0.4 and grayscale as 100% so it is out the way until user has hovered */
+}
+.robothalf-image:hover {
+    opacity: 1;
+    filter: grayscale(0%); /* Remove grayscale for effect purposes */
+}
+
+#robotdance-image {
+    left: 370px;
+    width: 350px;
+}
+#robotmid-image {
+    left: 100px;
+    width: 250px;
+}
+#robotleft-image {
+    width: 300px;
+}
+
+#second-paragraph {
+    top: 200px;
+}
+
+#second-section h2 {
+    top: 5px;
+    left: 50px;
+    font-family: 'green-pillow';
+    font-weight: lighter;
+    font-size: 50px;
+}
+#paragraph-container {
+    display: grid; /* Display it as a grid */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); /* Set the rows and columns as 2 by 2 for what is inside */
+    width: 85%;
+    height: 600px;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -45%); /* Center in the middle but slightly off for the top */
+    justify-items: center; /* Without using this, the content isnt centered properly */
+}
+
+#second-section p { /* This is for the content grid inside of the container */
+    width: 80%;
+    font-weight: lighter;
+    font-size: 18px;
+    background-color: rgba(206, 206, 206, 0.2);
+    padding: 20px; /* Add some space around the text */
+    border-radius: 5px;
+    overflow-y: scroll; /* If content overflows then add a scrollbar */
+}
+
+#products-container { /* I would use overflow scroll on this but it scrolls anyway so this saves the scrollbars from appearing */
+    width: 95%;
+    height: 96%;
+    margin-top: 7px;
+}
+
+.products {
+    border-radius: 15px;
+    transition: 250ms;
+    display: flex; /* Display the products as flex so i can align the items vertically inside */
+    align-items: center; /* Using this */
+    opacity: 0.7;
+    background-color: var(--third-color);
+    margin-bottom: 10px;
+}
+.products:hover {
+    background-color: var(--third-color);
+    opacity: 1;
+}
+
+.products-image {
+    width: 100px;
+    height: 100px; /* Set the products image as 100px on the height and width which is the perfect size for the products */
+    margin-left: 10px;
+}
+.products p {
+    color: var(--color-white);
+    height: 90%;
+    font-size: 14px;
+    width: 60%;
+    margin-left: auto; /* Set this property to auto so the content is made sure to be all the way to the right */
+    margin-right: 10px; /* Make sure it is not all the way on the right */
+}
+
+#product-3, #product-10 {
+    padding: 10px 0 10px 0;
+}
+
+#product-5 img, #product-6 img, #product-7 img, #product-8 img, #product-9 img, #product-10 img, #product-11 img, #product-12 img {
+    border-radius: 15px; /* Set the border radius as 15px for the product images that dont have a radius */
+}
+
+h2 {
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+form {
+    width: 60%;
+    max-width: 300px;
+    background-color: rgb(30, 35, 40);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1; /* Make sure the content is on the front */
+}
+
+input,
+textarea {
+    margin: 5px 0; /* So there is space in between the inputs */
+    padding: 10px; /* Add some space for design purposes */
+    border: none;
+    border-radius: 4px; /* I didn't like the sharp edges */
+    font-size: 16px;
+    width: 85%; /* Set the width of 85% for design purposes so it doesn't take the full width of the form */
+}
+
+input[type="submit"] { /* Customising the submit button */
+    margin-top: 10px;
+    background-color: #007bff;
+    color: var(--color-white);
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    width: 50%;
+}
+
+input[type="submit"]:hover { /* If the send button is hovered */
+    background-color: #0069d9; /* Change the blue to slightly darker */
+}
+
+footer {
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0%); /* Set the position of the footer as the center */
+    font-family: system-ui;
+    font-size: 14px;
+    color: #ccc;
+}
+
+#formx {
+    padding: 2px;
+    width: 20px;
+    right: 10px;
+}
+
+.clickable-title {
+    animation: lights 5s 750ms linear infinite; /* Set the animation for the title. */
+}
+
+#reminder {
+    left: 0;
+    top: 20px;
+    height: 40px;
+    width: 250px;
+    background-color: rgb(62, 56, 150);
+    color: var(--color-white);
+    z-index: 22;
+    padding: 10px;
+    font-family: system-ui;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    transform: translateX(-100%);
+}
+
+#close-reminder {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#topbutton-collection-hidden { /* This is for the phone navigation that appears on smaller screen resolutions */
+    width: 100px;
+    height: 150px;
+    background-color: var(--color-white);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    position: fixed;
+    left: 70px;
+    top: 20px;
+    padding-left: 8px;
+    color: black;
+    z-index: 222;
+}
+.button-collection-hidden {
+    color: black;
+    text-decoration: none;
+}
+
+@keyframes slideleft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes lights { 
+    0% {
+        color: hsl(230, 40%, 80%); /* HSL colour model with a hue of 230 degrees, saturation of 40%, and a lightness of 80% */
+        text-shadow: /* Set to multiple comma-seperated values, each representing a text shadow effect with different offsets, blurs, and colours. */
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+    30% { 
+        color: hsl(230, 80%, 90%);
+        text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    40% { 
+        color: hsl(230, 100%, 95%);
+        text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 90%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    70% {
+        color: hsl(230, 80%, 90%);
+        text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    100% {
+        color: hsl(230, 40%, 80%);
+        text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+}
+
+@keyframes fadein { /* This is used for the fade in for the main image */
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
