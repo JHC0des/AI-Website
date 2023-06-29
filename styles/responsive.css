@@ -1,0 +1,163 @@
+@media only screen and (max-width: 1000px) { /* If screen is 1000px and below */
+    #robotdance-image { /* This is the middle robot */
+        display: none; /* Hide it because there is no space */
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    #logo {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #robotleft-image {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    #main-content { /* Main content (floating part) of the document */
+        height: 100%;
+        width: 100%; /* Set the width and height as 100% because the floating part was too small on smaller screen devices */
+        max-width: unset; /* Remove max height and width because it is no longer needed if the width and height is 100% */
+        max-height: unset;
+    }
+
+    #first-section p { /* Modify the paragraph section in the middle as the width and height changes its position */
+        position: absolute;
+        left: 15%;
+        /* transform: translateX(-50%); */
+        margin-left: unset;
+        margin-top: 170px;
+        animation: none; /* Remove the animation to help loading speed and it messes up */
+    }
+
+    #first-section h1 {
+        margin-left: unset;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 2rem; /* Change the font size to match screen width so it is smaller. A bigger font doesn't look good */
+    }
+
+    #second-section h2 { /* Title of the second section */
+        font-size: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        top: 10px;
+    }
+
+    #circle {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    #paragraph-container {
+        grid-template-columns: 1fr; /* Make one column. This is for the second section and works well smaller screen resolutions. */
+        bottom: 10px;
+    }
+
+    #second-section p { /* This is the paragraph sections inside of the paragraph-container. I didn't put a height on this as the boxes resize based on content within. */
+        font-size: 14px;
+        margin-top: 0; /* Make sure the content is at the top */
+    }
+
+    #second-section h2 {
+        top: 10px;
+        left: 160px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    #topbutton-collection-hidden {
+        display: none !important; /* Set this to important so it is prioritsed over the javascript code. This is to make sure that this hides when the the screen resolution is too big */
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #left-nav { /* hide the left navigation bar */
+        display: none;
+    }
+
+    #logo { /* Hide the logo to make more room on smaller resolutions*/
+        display: none;
+    }
+
+    #robotmid-image {
+        left: 0; /* Set the robot image to left so more room is available for smaller screen resolutions */
+    }
+
+    #topbutton-collection { /* Hide the navigation buttons on the top nav */
+        display: none;
+    }
+
+    #shownav { /* Display the 2 lines image */
+        display: block;
+    }
+
+    #first-section p {
+        max-height: 320px; /* Set the max height so it doesnt overflow the screen on smaller screen resolutions */
+        overflow: scroll;
+        font-size: 16px;
+    }
+
+    #robotleft-image {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #robotmid-image {
+        width: 200px; /* Decrease the size of the robot image so it doesnt overlap the text content */
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #first-section p {
+        z-index: 2; /* Make sure the p element is on top of the robot images */
+        width: 70%;
+        height: 200px;
+        margin-top: 200px;
+        margin-left: -15px;
+    }
+
+    .robothalf-image {
+        display: none;
+    }
+
+    #paragraph-container {
+        height: 400px;
+    }
+    #paragraph-container p {
+        font-size: 14px;
+        padding: 10px;
+        margin-left: 10px;
+    }
+    #paragraph-container p:nth-child(1), #paragraph-container p:nth-child(2) { /* I could have used ids but there was no need to */
+        height: 40px;
+    }
+
+    #second-section h2 {
+        margin-top: unset;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .products p {
+        overflow-y: scroll;
+    }
+    .products {
+        height: 220px;
+    }
+    .products-image {
+        margin-top: -100px;
+    }
+    .products h2 {
+        margin-top: 50px;
+        position: absolute; 
+        font-size: 17px;
+    }
+}
